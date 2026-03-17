@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - FuelFinder</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="admin.html" class="navbar-brand">
+                🛡️ FuelFinder Admin
+            </a>
+            <div class="navbar-nav">
+                <a href="#" id="logoutBtn">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-bottom: 4rem;">
+        <h1 class="text-center" style="margin-bottom: 2rem;">Administration Panel</h1>
+
+        <!-- Register Station Section -->
+        <div class="card">
+            <h2 style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">Register New
+                Station</h2>
+            <form id="registerStationForm">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <!-- Station Details -->
+                    <div>
+                        <h3 class="text-muted"
+                            style="font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">
+                            Station Details</h3>
+                        <div class="form-group">
+                            <label class="form-label">Station Name</label>
+                            <input type="text" id="stationName" class="form-control"
+                                placeholder="e.g. Colombo Central Fuel" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Brand</label>
+                            <select id="stationBrand" class="form-control" required>
+                                <option value="Ceypetco">Ceypetco</option>
+                                <option value="IOC">Lanka IOC</option>
+                                <option value="Sinopec">Sinopec</option>
+                                <option value="LAUGFS">LAUGFS</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Address</label>
+                            <input type="text" id="stationAddress" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">City/Location</label>
+                            <input type="text" id="stationLocation" class="form-control" placeholder="e.g. Colombo 03"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Contact Number</label>
+                            <input type="tel" id="stationContact" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Cover Image</label>
+                            <input type="file" id="stationImageFile" class="form-control" accept="image/*">
+                            <input type="hidden" id="stationImageBase64">
+                            <small class="text-muted">Upload an image from your device.</small>
+                            <div id="imagePreview" style="margin-top: 10px; max-width: 100%; display: none;">
+                                <img src="" style="max-height: 100px; border-radius: 8px;">
+                            </div>
+                        </div>
+
+                        <!-- Hidden ID for Editing -->
+                        <input type="hidden" id="editStationId">
+                    </div>
+
+                    <!-- Manager Credentials -->
+                    <div style="border-left: 1px solid #eee; padding-left: 2rem;">
+                        <h3 class="text-muted"
+                            style="font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">
+                            Manager Access</h3>
+                        <div class="form-group">
+                            <label class="form-label">Manager Username</label>
+                            <input type="text" id="mgrUsername" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Password</label>
+                            <input type="password" id="mgrPassword" class="form-control" required>
+                            <small class="text-muted" id="passwordHelp" style="display:none;">Leave blank to keep
+                                existing password (Editing only)</small>
+                        </div>
+
+                        <div style="margin-top: 2rem; display: flex; gap: 10px;">
+                            <button type="submit" id="submitBtn" class="btn btn-primary"
+                                style="flex: 1; padding: 0.8rem;">
+                                <span style="font-size: 1.2rem;">+</span> <span id="submitBtnText">Create Station</span>
+                            </button>
+                            <button type="button" id="cancelEditBtn" class="btn btn-secondary" style="display: none;">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Registered Stations List -->
+        <h2 style="margin-top: 3rem;">Manage Stations</h2>
+        <div class="card" style="padding: 0;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead style="background-color: #F9FAFB; border-bottom: 1px solid #E5E7EB;">
+                    <tr>
+                        <th
+                            style="padding: 1rem; text-align: left; font-size: 0.85rem; text-transform: uppercase; color: #6B7280;">
+                            Station</th>
+                        <th
+                            style="padding: 1rem; text-align: left; font-size: 0.85rem; text-transform: uppercase; color: #6B7280;">
+                            Location</th>
+                        <th
+                            style="padding: 1rem; text-align: left; font-size: 0.85rem; text-transform: uppercase; color: #6B7280;">
+                            Manager</th>
+                        <th
+                            style="padding: 1rem; text-align: right; font-size: 0.85rem; text-transform: uppercase; color: #6B7280;">
+                            Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="stationList">
+                    <!-- Populated by JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- User Management (Hidden for brevity in this iteration, but supported by logic) -->
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

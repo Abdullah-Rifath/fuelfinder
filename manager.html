@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Portal - FuelFinder</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar" style="margin-bottom: 2rem;">
+        <div class="container">
+            <a href="manager.html" class="navbar-brand">
+                ⛽ Station Manager
+            </a>
+            <div class="navbar-nav">
+                <span id="stationNameDisplay" style="margin-right: 20px; font-size: 0.95rem; opacity: 0.9;"></span>
+                <a href="#" id="logoutBtn">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <div
+                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 1px solid #F3F4F6; padding-bottom: 1rem;">
+                <div>
+                    <h2 style="margin-bottom: 0.5rem;">Update Fuel Availability</h2>
+                    <p class="text-muted">Manage stock status and prices for your station.</p>
+                </div>
+                <div class="text-right text-sm text-muted">
+                    Last synced: <span id="lastSyncTime" style="font-weight: 600; color: var(--dark-text);">Just
+                        now</span>
+                </div>
+            </div>
+
+            <!-- Station Image Management -->
+            <div
+                style="background: #F9FAFB; border-radius: 8px; padding: 1rem; margin-bottom: 2rem; border: 1px solid #E5E7EB;">
+                <h3 style="font-size: 1rem; margin-bottom: 1rem;">Station Cover Image</h3>
+                <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                    <div style="flex: 0 0 200px;">
+                        <img id="currentStationImage" src="" alt="Station Cover"
+                            style="width: 100%; height: 100px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd; background: #eee;">
+                    </div>
+                    <div style="flex: 1;">
+                        <input type="file" id="stationImageFile" class="form-control" accept="image/*"
+                            style="margin-bottom: 0.5rem;">
+                        <input type="hidden" id="stationImageBase64">
+                        <small class="text-muted" style="display: block; margin-bottom: 1rem;">Upload JPG/PNG.
+                            Auto-cropped to 600x300px.</small>
+                        <button id="updateImageBtn" class="btn btn-primary btn-sm" disabled>Update Image</button>
+                    </div>
+                </div>
+            </div>
+
+            <div <div
+                style="display: grid; grid-template-columns: 1fr 120px 140px 100px; gap: 2rem; padding: 1rem 0.5rem; border-bottom: 2px solid #F1F5F9; font-weight: 700; color: #94A3B8; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">
+                <div>Fuel Type</div>
+                <div class="text-center">Price (LKR)</div>
+                <div class="text-center">Status</div>
+                <div class="text-center">Action</div>
+            </div>
+
+            <ul class="fuel-list" id="managerStockList">
+                <!-- Populated by JS -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/manager.js"></script>
+</body>
+
+</html>

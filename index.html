@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuelFinder - Sri Lanka</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                ⛽ FuelFinder
+            </a>
+            <div class="navbar-nav">
+                <a href="login.html">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Search Section -->
+        <section class="hero">
+            <h1>Find Fuel Near You</h1>
+            <p style="color: #64748B; margin-bottom: 2rem; font-size: 1.1rem;">Real-time updates from stations across
+                Sri Lanka</p>
+
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input"
+                    placeholder="Search by station name, city, or brand...">
+            </div>
+        </section>
+
+        <!-- Filters (Hidden for prototype simplicity, implied in search) -->
+
+        <!-- Station Grid -->
+        <div id="stationGrid" class="station-grid">
+            <!-- Stations will be populated here by JS -->
+            <p style="text-align: center; grid-column: 1/-1; color: #666;">Loading stations...</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 FuelFinder. Real-time Fuel Availability Tracker.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
